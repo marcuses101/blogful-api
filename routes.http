@@ -2,9 +2,76 @@ GET http://localhost:8000/ HTTP/1.1
 
 ###
 
-GET http://localhost:8000/articles HTTP/1.1
+GET http://localhost:8000/api/articles HTTP/1.1
 
 ###
 
-GET http://localhost:8000/articles/911 HTTP/1.1
+POST http://localhost:8000/api/articles HTTP/1.1
+Content-Type: application/json
 
+{
+  "title": "How to break teh db",
+  "content": "Here is an article with a wrong author",
+  "style": "Listicle",
+  "author": 2
+}
+###
+
+GET http://localhost:8000/api/articles/911 HTTP/1.1
+
+###
+GET http://localhost:8000/api/users HTTP/1.1
+
+###
+
+POST http://localhost:8000/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+  "fullname": "Marcus",
+  "username": "Marcuses101",
+  "nickname": "fully-stacked"
+}
+
+###
+DELETE http://localhost:8000/api/users/1 HTTP/1.1
+
+###
+GET http://localhost:8000/api/users/2 HTTP/1.1
+
+###
+PATCH http://localhost:8000/api/users/7 HTTP/1.1
+Content-Type: application/json
+
+{
+  "fullname": "dad"
+}
+
+###
+GET http://localhost:8000/api/comments HTTP/1.1
+
+###
+POST http://localhost:8000/api/comments HTTP/1.1
+Content-Type: application/json
+
+{
+  "text": "Super dope!",
+  "article_id": 1,
+  "user_id": 2
+}
+
+###
+
+GET http://localhost:8000/api/comments/4 HTTP/1.1
+
+###
+
+DELETE http://localhost:8000/api/comments/2 HTTP/1.1
+
+###
+PATCH http://localhost:8000/api/comments/4 HTTP/1.1
+Content-Type: application/json
+
+{
+  "text": "Actually I'm not so sure about this article after all."
+}
